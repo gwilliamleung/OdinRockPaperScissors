@@ -20,7 +20,7 @@ if (playGame) {
                 : `playerOne: ${playerOne}\nComputer: ${computer}\nplayerOne wins!`;
             alert(result);
         } else {
-            alert("You didn't enter a value command")
+            alert("You didn't enter a valid command")
         }
     } else {
         alert("I guess you changed your mind. Maybe next time.");
