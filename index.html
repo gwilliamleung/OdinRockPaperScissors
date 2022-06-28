@@ -9,22 +9,22 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="selections">
-        <button class="selection" data-selection="rock">✊</button>
-        <button class="selection" data-selection="paper">✋</button>
-        <button class="selection" data-selection="scissors">✌</button>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <div class="scoreboard">
+        <div id="userlabel" class="badge">user</div>
+        <div id="computerlabel" class="badge">comp</div>
+        <span id="userscore">0</span>:<span id="computerscore">0</span>
     </div>
-    <div class="results">
-        <div>
-            You
-            <span class="resultscore">0</span>
-        </div>
-        <div>
-            Computer
-            <span class="resultscore">0</span>
-        </div>
-        <!-- <div class="resultselectionwinner">✊</div>
-        <div class="resultselection">✌️</div> -->
+    <div class="result">
+        <p>Paper covers rock. You win!</p>
     </div>
+    <div class="choices">
+        <button class="choice" id="r">✊</button>
+        <button class="choice" id="p">✋</button>
+        <button class="choice" id="s">✌️</button>
+    </div>
+    <p id="actionmessage">Make your move</p>
 </body>
 </html>
