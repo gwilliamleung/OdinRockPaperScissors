@@ -1,9 +1,9 @@
-const userScore = 0;
-const computerScore = 0;
+let userScore = 0;
+let computerScore = 0;
 const userScoreSpan = document.getElementById("userscore");
 const computerScoreSpan = document.getElementById("computerscore");
 const scoreBoardDiv = document.querySelector(".scoreboard");
-const resultDiv = document.querySelector(".result");
+const resultP = document.querySelector(".result > p");
 const rockButton = document.getElementById("r");
 const paperButton = document.getElementById("p");
 const scissorsButton = document.getElementById("s");
@@ -14,33 +14,47 @@ function getComputerChoice(){
     return choices[randomNumber]
 }
 
-function win(user,){
-    userScore++;
-    userScoreSpan.innerHTML = userScore;
-    computerScoreSpan.innerHTML = computerScore;
+function convertToWord(letter){
+    if(letter === "r") return "Rock";
+    if(letter === "p") return "Paper";
+    return "Scissors"
 }
 
-function lose(){
+function win(userChoice,computerChoice){
+    userScore++;
+    userScoreSpan.innerHTML = userScore;
+    computerScoreSpan.innerHTML = computerScore; 
+    resultP.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)}. You win!`;
 }
+
+function lose(userChoice,computerChoice){
+    computerScore++;
+    userScoreSpan.innerHTML = userScore;
+    computerScoreSpan.innerHTML = computerScore; 
+    resultP.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)}. You loses!`;
+}
+
+function draw(userChoice,computerChoice){
+    resultP.innerHTML = `${convertToWord(userChoice)} equals ${convertToWord(computerChoice)}. Its a draw!`;
+}
+
 function game(userChoice){
     const computerChoice = getComputerChoice();
     switch (userChoice + computerChoice){
         case "rs":
         case "pr":
         case "sp":
-            console.log("USER WINS");
-            win();
+            win(userChoice, computerChoice);
+            break;
         case "rp":
         case "ps":
         case "sr":
-            console.log("USER LOSES");
-            console.log(computerChoice);
+            lose(userChoice, computerChoice);
             break;
         case "rr":
         case "pp":
         case "ss":
-            console.log("TIE");
-            console.log(computerChoice);
+            draw(userChoice, computerChoice);
             break;
     }
 
