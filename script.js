@@ -14,6 +14,14 @@ function getComputerChoice(){
     return choices[randomNumber]
 }
 
+function win(user,){
+    userScore++;
+    userScoreSpan.innerHTML = userScore;
+    computerScoreSpan.innerHTML = computerScore;
+}
+
+function lose(){
+}
 function game(userChoice){
     const computerChoice = getComputerChoice();
     switch (userChoice + computerChoice){
@@ -21,8 +29,7 @@ function game(userChoice){
         case "pr":
         case "sp":
             console.log("USER WINS");
-            console.log(computerChoice);
-            break;
+            win();
         case "rp":
         case "ps":
         case "sr":
